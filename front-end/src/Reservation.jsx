@@ -1,5 +1,5 @@
 import { assignStatus, listReservations } from "./utils/api";
-export default function Reservation({ data, setReservations, date, key }) {
+export default function Reservation({ data, setReservations, date, idx }) {
   function cancelReservation() {
     if (
       window.confirm(
@@ -17,7 +17,7 @@ export default function Reservation({ data, setReservations, date, key }) {
     }
   }
   return (
-    <div key={key} className="card ">
+    <div key={idx} className="card ">
       <div className="card-body">
         <h5 className="card-title">
           Reservation for: {`${data.first_name} ${data.last_name}`}{" "}

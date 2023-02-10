@@ -1,8 +1,8 @@
 import Finish from "./Finish";
 
-export default function Table({ data, setTables, key }) {
+export default function Table({ data, setTables, idx }) {
   return (
-    <div key={key} className="card">
+    <div key={idx} className="card">
       <div className="card-body">
         <h5 className="card-title">Table: {`${data.table_name}`}</h5>
         <p className="card-text">Capacity: {data.capacity}</p>

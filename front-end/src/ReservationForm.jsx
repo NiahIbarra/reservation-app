@@ -23,13 +23,12 @@ export default function ReservationForm() {
   });
   const [error, setError] = useState(null);
   const formChange = (event) => {
-    const changeObj = { ...formData };
     if (event.target.id === `mobile_number`) {
       let phoneNumber = event.target.value;
       phoneNumber = mobileValidate(phoneNumber, formData.mobile_number.length);
       event.target.value = phoneNumber;
     }
-    changeObj[event.target.id] = event.target.value;
+    const changeObj = { ...formData, [event.target.name]: event.target.value };
     changeObj.people = Number(changeObj.people);
     setFormData(changeObj);
   };
@@ -89,7 +88,7 @@ export default function ReservationForm() {
         people: 1,
       });
     }
-  }, [type, params.reservation_id, existingData]);
+  }, [type, params.reservation_id]);
   useEffect(() => {
     if (Object.keys(existingData).length) {
       setFormData({

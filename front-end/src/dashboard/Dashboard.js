@@ -96,7 +96,7 @@ function Dashboard({ date }) {
             reservation.status === "finished" ||
             reservation.status === "cancelled" ? null : (
               <Reservation
-                key={idx}
+                idx={idx}
                 data={reservation}
                 setReservations={setReservations}
                 date={date}
@@ -107,7 +107,7 @@ function Dashboard({ date }) {
         <div className="col-md-6 col-sm-12">
           <h4>Tables</h4>
           {tables.map((table, idx) => (
-            <Table key={idx} data={table} setTables={setTables} />
+            <Table idx={idx} data={table} setTables={setTables} />
           ))}
         </div>
       </div>
